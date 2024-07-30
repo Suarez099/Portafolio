@@ -1,0 +1,33 @@
+---
+
+---
+
+<button
+  class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+  id="theme-toggle"
+>
+  🌙
+</button>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme") || "light";
+
+    // Actualiza el texto del botón según el tema actual
+    if (currentTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      if (themeToggle) {
+        themeToggle.textContent = "☀️";
+      }
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        const isDarkMode = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        themeToggle.textContent = isDarkMode ? "☀️" : "🌙";
+      });
+    }
+  });
+</script>
