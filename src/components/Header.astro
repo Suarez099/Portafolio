@@ -1,0 +1,97 @@
+---
+import Dark from "./ThemeToggle.astro";
+import { Image } from "astro:assets";
+import OpenMainMenu from "./icons/Code.astro"
+---
+
+<nav
+  class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+>
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <a href="#Inicio" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <div class="flex items-center gap-4">
+        <Image
+          class="w-15 h-15 p-1 rounded-full ring-2 ring-blue-500 dark:ring-blue-700"
+          src="/favicon.ico"
+          alt="Logo personal de mi portafolio."
+          width="60"
+          height="60"
+          decoding="async"
+          loading="eager"
+        />
+        <div class="font-medium dark:text-white">
+          <div>Diego Suarez</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">
+            Desarrolador Web
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="flex md:order-2 space-x-3 rtl:space-x-reverse inline-flex items-center">
+      <Dark />
+      
+      <button
+        data-collapse-toggle="navbar-sticky"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-sticky"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <OpenMainMenu />
+      </button>
+    </div>
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      id="navbar-sticky"
+    >
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        <li>
+          <a
+            href="#inicio"
+            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            aria-current="page">Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#experiencia"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >Experiencia</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#proyectos"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >Proyectos</a
+          >
+        </li>
+        <li>
+          <a
+            href="#sobre-mi"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >Sobre mí</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.querySelector("[data-collapse-toggle]");
+    const navbarMenu = document.getElementById("navbar-sticky");
+
+    if (toggleButton && navbarMenu) {
+      toggleButton.addEventListener("click", () => {
+        navbarMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>

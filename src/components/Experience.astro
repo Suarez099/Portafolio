@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+export interface timeLine {
+  title: string;
+  date: string;
+  span: string;
+  description: string;
+  isLatest?: boolean;
+}
+
+const experiences: timeLine[] = [
+  {
+    title: "Aprendiz - Coopidrogas",
+    date: "Enero del 2024 - Julio del 2024",
+    span: "Reciente",
+    description:
+      "En esta cooperativa desempeñé el cargo de aprendiz en desarrollo de software. Durante mi tiempo allí, llevé a cabo dos proyectos full stack, incluyendo la creación de diagramas y documentación, así como el desarrollo del frontend y backend. Utilicé herramientas como HTML, CSS, Tailwind, JavaScript, y los frameworks como Symfony y Next.js.",
+    isLatest: true,
+  },
+];
+---
+
+  <div class="md:w-2/3 lg:w-3/1 ml-6">
+    <ol class="relative border-l border-gray-200 dark:border-gray-700">
+      {experiences.map((timeLine) => <ExperienceItem timeLine={timeLine} />)}
+    </ol>
+  </div>
+
+ 
