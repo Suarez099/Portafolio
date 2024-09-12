@@ -1,19 +1,12 @@
 ---
-// import {
-//   IconBrandDribbble,
-//   IconJS,
-//   IconHTML,
-//   IconCSS,
-//   IconLinkedin,
-//   IconGitHub,
-// } from "@/imports/Iconos.astro";
 import Image from "astro/components/Image.astro";
+import G from "./icons/Code.astro"
 
 export interface BentoBox {
   id: number;
   nombre: string;
   descripcion: string;
-  tecnologias: { nombre: string; }[];
+  tecnologias: { nombre: string; icon?: any }[];
   imagen: string;
   altImagen: string;
   enlace?: string;
@@ -26,7 +19,7 @@ const bentoboxs: BentoBox[] = [
     descripcion:
       "Un proyecto realizado por midudev donde se prueba la velocidad y precisión al escribir.",
     tecnologias: [
-      { nombre: "HTML" },
+      { nombre: "HTML", icon: G },
       { nombre: "CSS" },
       { nombre: "JavaScript" },
       { nombre: "DOM" },
